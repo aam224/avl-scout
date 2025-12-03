@@ -5,39 +5,40 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Package } from "lucide-react";
+import { Globe } from "lucide-react";
 
-const productTypes = [
-  { value: "BESS", label: "BESS" },
-  { value: "Inverter", label: "Inverter" },
-  { value: "EV Charger", label: "EV Charger" },
-  { value: "Microgrid Controller", label: "Microgrid Controller" },
+const regions = [
+  { value: "US", label: "US" },
+  { value: "EU", label: "EU" },
+  { value: "India", label: "India" },
+  { value: "APAC", label: "APAC" },
+  { value: "LATAM", label: "LATAM" },
 ];
 
-interface ProductTypeSelectProps {
+interface RegionSelectProps {
   value: string;
   onChange: (value: string) => void;
 }
 
-export function ProductTypeSelect({ value, onChange }: ProductTypeSelectProps) {
+export function RegionSelect({ value, onChange }: RegionSelectProps) {
   return (
     <div className="w-full">
       <label className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground">
-        <Package className="h-4 w-4 text-primary" />
-        Product Type
+        <Globe className="h-4 w-4 text-primary" />
+        Region
       </label>
       <Select value={value} onValueChange={onChange}>
         <SelectTrigger className="w-full h-12 bg-card border-border text-foreground">
-          <SelectValue placeholder="Select product type..." />
+          <SelectValue placeholder="Select region..." />
         </SelectTrigger>
         <SelectContent className="bg-card border-border">
-          {productTypes.map((type) => (
+          {regions.map((region) => (
             <SelectItem
-              key={type.value}
-              value={type.value}
+              key={region.value}
+              value={region.value}
               className="text-foreground focus:bg-secondary focus:text-foreground"
             >
-              {type.label}
+              {region.label}
             </SelectItem>
           ))}
         </SelectContent>

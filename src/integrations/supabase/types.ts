@@ -17,6 +17,7 @@ export type Database = {
       screening_sessions: {
         Row: {
           created_at: string
+          file_url: string | null
           id: string
           llm_input_text: string | null
           product_type: string
@@ -27,6 +28,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          file_url?: string | null
           id?: string
           llm_input_text?: string | null
           product_type: string
@@ -37,6 +39,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          file_url?: string | null
           id?: string
           llm_input_text?: string | null
           product_type?: string

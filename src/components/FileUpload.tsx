@@ -1,13 +1,14 @@
 import { useState, useCallback } from "react";
-import { Upload, FileText, X, CheckCircle2 } from "lucide-react";
+import { Upload, FileText, X, CheckCircle2, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FileUploadProps {
   onFileSelect: (file: File | null) => void;
   selectedFile: File | null;
+  isUploading?: boolean;
 }
 
-export function FileUpload({ onFileSelect, selectedFile }: FileUploadProps) {
+export function FileUpload({ onFileSelect, selectedFile, isUploading }: FileUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
 
   const handleDrag = useCallback((e: React.DragEvent) => {
@@ -112,10 +113,15 @@ export function FileUpload({ onFileSelect, selectedFile }: FileUploadProps) {
               {formatFileSize(selectedFile.size)}
             </p>
           </div>
-          <CheckCircle2 className="h-5 w-5 text-score-excellent" />
+          {isUploading ? (
+            <Loader2 className="h-5 w-5 text-primary animate-spin" />
+          ) : (
+            <CheckCircle2 className="h-5 w-5 text-score-excellent" />
+          )}
           <button
             onClick={removeFile}
-            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            disabled={isUploading}
+            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground disabled:opacity-50"
           >
             <X className="h-5 w-5" />
           </button>

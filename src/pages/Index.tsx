@@ -85,25 +85,49 @@ const Index = () => {
     // Update session with selected product type and region
     await supabase
       .from("screening_sessions")
-      .update({ product_type: productType, region: region, status: "processing" })
+      .update({ product_type: productType, region: region })
       .eq("id", sessionId);
 
     setState("processing");
     setProcessingStep(0);
 
-    // Simulate processing steps
-    const stepDuration = 1500;
-    setTimeout(() => setProcessingStep(1), stepDuration);
-    setTimeout(() => setProcessingStep(2), stepDuration * 2);
-    setTimeout(async () => {
-      // Update session status to completed
-      await supabase
-        .from("screening_sessions")
-        .update({ status: "completed" })
-        .eq("id", sessionId);
-      setState("results");
-    }, stepDuration * 3);
-  }, [selectedFile, productType, region, sessionId]);
+    // Show progress steps while backend processes
+    const stepInterval = setInterval(() => {
+      setProcessingStep((prev) => Math.min(prev + 1, 2));
+    }, 2000);
+
+    try {
+      // Call the backend processing function
+      const { data, error } = await supabase.functions.invoke("process-screening-session", {
+        body: { sessionId },
+      });
+
+      clearInterval(stepInterval);
+
+      if (error) {
+        console.error("Processing error:", error);
+        toast({
+          title: "Analysis failed",
+          description: error.message || "Failed to analyze the report.",
+          variant: "destructive",
+        });
+        setState("upload");
+        return;
+      }
+
+      setProcessingStep(2);
+      setTimeout(() => setState("results"), 500);
+    } catch (err) {
+      clearInterval(stepInterval);
+      console.error("Processing error:", err);
+      toast({
+        title: "Analysis failed",
+        description: "An unexpected error occurred.",
+        variant: "destructive",
+      });
+      setState("upload");
+    }
+  }, [selectedFile, productType, region, sessionId, toast]);
 
   const handleReset = useCallback(() => {
     setState("upload");
@@ -233,7 +257,7 @@ const Index = () => {
           </div>
         )}
 
-        {state === "results" && <ScreeningResults productType={productType} />}
+        {state === "results" && <ScreeningResults productType={productType} sessionId={sessionId} />}
       </main>
     </div>
   );

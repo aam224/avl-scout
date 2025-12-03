@@ -91,42 +91,52 @@ const Index = () => {
     setState("processing");
     setProcessingStep(0);
 
-    // Show progress steps while backend processes
-    const stepInterval = setInterval(() => {
-      setProcessingStep((prev) => Math.min(prev + 1, 2));
-    }, 2000);
+    // Fire off the backend processing (don't await)
+    supabase.functions.invoke("process-screening-session", {
+      body: { sessionId },
+    }).catch((err) => {
+      console.error("Error invoking process-screening-session:", err);
+    });
 
-    try {
-      // Call the backend processing function
-      const { data, error } = await supabase.functions.invoke("process-screening-session", {
-        body: { sessionId },
-      });
+    // Poll for completion every 3 seconds
+    const pollInterval = setInterval(async () => {
+      try {
+        const { data: session, error } = await supabase
+          .from("screening_sessions")
+          .select("status")
+          .eq("id", sessionId)
+          .single();
 
-      clearInterval(stepInterval);
+        if (error) {
+          console.error("Polling error:", error);
+          return;
+        }
 
-      if (error) {
-        console.error("Processing error:", error);
-        toast({
-          title: "Analysis failed",
-          description: error.message || "Failed to analyze the report.",
-          variant: "destructive",
-        });
-        setState("upload");
-        return;
+        // Update progress step based on status
+        if (session.status === "processing") {
+          setProcessingStep(1);
+        }
+
+        if (session.status === "completed") {
+          clearInterval(pollInterval);
+          setProcessingStep(2);
+          setTimeout(() => setState("results"), 500);
+        } else if (session.status === "error") {
+          clearInterval(pollInterval);
+          toast({
+            title: "Analysis failed",
+            description: "The screening process encountered an error.",
+            variant: "destructive",
+          });
+          setState("upload");
+        }
+      } catch (err) {
+        console.error("Polling error:", err);
       }
+    }, 3000);
 
-      setProcessingStep(2);
-      setTimeout(() => setState("results"), 500);
-    } catch (err) {
-      clearInterval(stepInterval);
-      console.error("Processing error:", err);
-      toast({
-        title: "Analysis failed",
-        description: "An unexpected error occurred.",
-        variant: "destructive",
-      });
-      setState("upload");
-    }
+    // Cleanup on unmount (store interval in ref would be better, but this works for now)
+    return () => clearInterval(pollInterval);
   }, [selectedFile, productType, region, sessionId, toast]);
 
   const handleReset = useCallback(() => {

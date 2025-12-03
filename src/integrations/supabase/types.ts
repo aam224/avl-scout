@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      screening_sessions: {
+        Row: {
+          created_at: string
+          id: string
+          llm_input_text: string | null
+          product_type: string
+          region: string
+          scores_json: Json | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          llm_input_text?: string | null
+          product_type: string
+          region: string
+          scores_json?: Json | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          llm_input_text?: string | null
+          product_type?: string
+          region?: string
+          scores_json?: Json | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

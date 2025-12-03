@@ -111,7 +111,7 @@ async function extractTextFromPdf(pdfBuffer: ArrayBuffer): Promise<string> {
   return text.join("\n").slice(0, 50000); // Limit to ~50k chars
 }
 
-function cleanAndTruncateText(text: string, maxLength: number = 30000): string {
+function cleanAndTruncateText(text: string, maxLength: number = 20000): string {
   // Remove excessive whitespace and special characters
   let cleaned = text
     .replace(/[\x00-\x1F\x7F-\x9F]/g, " ") // Control characters

@@ -1,11 +1,12 @@
 import { useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { FileUpload } from "@/components/FileUpload";
 import { ProductTypeSelect } from "@/components/ProductTypeSelect";
 import { RegionSelect } from "@/components/RegionSelect";
 import { ProcessingState } from "@/components/ProcessingState";
 import { ScreeningResults } from "@/components/ScreeningResults";
 import { Button } from "@/components/ui/button";
-import { Zap, RotateCcw, Shield } from "lucide-react";
+import { Zap, RotateCcw, Shield, Database } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -167,12 +168,20 @@ const Index = () => {
               </p>
             </div>
           </div>
-          {state === "results" && (
-            <Button variant="outline" size="sm" onClick={handleReset}>
-              <RotateCcw className="h-4 w-4" />
-              New Analysis
-            </Button>
-          )}
+          <nav className="flex items-center gap-3">
+            {state === "results" && (
+              <Button variant="outline" size="sm" onClick={handleReset}>
+                <RotateCcw className="h-4 w-4" />
+                New Analysis
+              </Button>
+            )}
+            <Link to="/equipment">
+              <Button variant="ghost" size="sm">
+                <Database className="h-4 w-4" />
+                Equipment DB
+              </Button>
+            </Link>
+          </nav>
         </div>
       </header>
 

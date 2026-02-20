@@ -1,3 +1,12 @@
+-- Create the helper function for automatic timestamp updates
+CREATE OR REPLACE FUNCTION public.update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = now();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
 -- Create website_monitors table to track monitored URLs and notification settings
 CREATE TABLE public.website_monitors (
   id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
@@ -47,7 +56,7 @@ FOR ALL
 USING (true)
 WITH CHECK (true);
 
--- Trigger for automatic timestamp updates (reuses existing function)
+-- Trigger for automatic timestamp updates
 CREATE TRIGGER update_website_monitors_updated_at
 BEFORE UPDATE ON public.website_monitors
 FOR EACH ROW

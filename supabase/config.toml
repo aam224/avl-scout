@@ -2,3 +2,6 @@ project_id = "opzvdtdwmfbjmkrmkrza"
 
 [functions.process-screening-session]
 verify_jwt = false
+
+[functions.monitor-website]
+verify_jwt = false

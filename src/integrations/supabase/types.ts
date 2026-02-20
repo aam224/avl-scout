@@ -50,6 +50,95 @@ export type Database = {
         }
         Relationships: []
       }
+      website_monitors: {
+        Row: {
+          id: string
+          url: string
+          label: string
+          is_active: boolean
+          check_interval_minutes: number
+          content_hash: string | null
+          last_checked_at: string | null
+          last_changed_at: string | null
+          notify_email: string | null
+          notify_phone: string | null
+          notification_method: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          url: string
+          label?: string
+          is_active?: boolean
+          check_interval_minutes?: number
+          content_hash?: string | null
+          last_checked_at?: string | null
+          last_changed_at?: string | null
+          notify_email?: string | null
+          notify_phone?: string | null
+          notification_method?: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          url?: string
+          label?: string
+          is_active?: boolean
+          check_interval_minutes?: number
+          content_hash?: string | null
+          last_checked_at?: string | null
+          last_changed_at?: string | null
+          notify_email?: string | null
+          notify_phone?: string | null
+          notification_method?: string
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      website_change_logs: {
+        Row: {
+          id: string
+          monitor_id: string
+          previous_hash: string | null
+          new_hash: string
+          diff_summary: string | null
+          notified: boolean
+          notification_error: string | null
+          detected_at: string
+        }
+        Insert: {
+          id?: string
+          monitor_id: string
+          previous_hash?: string | null
+          new_hash: string
+          diff_summary?: string | null
+          notified?: boolean
+          notification_error?: string | null
+          detected_at?: string
+        }
+        Update: {
+          id?: string
+          monitor_id?: string
+          previous_hash?: string | null
+          new_hash?: string
+          diff_summary?: string | null
+          notified?: boolean
+          notification_error?: string | null
+          detected_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "website_change_logs_monitor_id_fkey"
+            columns: ["monitor_id"]
+            isOneToOne: false
+            referencedRelation: "website_monitors"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never

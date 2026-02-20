@@ -5,7 +5,8 @@ import { RegionSelect } from "@/components/RegionSelect";
 import { ProcessingState } from "@/components/ProcessingState";
 import { ScreeningResults } from "@/components/ScreeningResults";
 import { Button } from "@/components/ui/button";
-import { Zap, RotateCcw, Shield } from "lucide-react";
+import { Zap, RotateCcw, Shield, Activity } from "lucide-react";
+import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -167,12 +168,20 @@ const Index = () => {
               </p>
             </div>
           </div>
-          {state === "results" && (
-            <Button variant="outline" size="sm" onClick={handleReset}>
-              <RotateCcw className="h-4 w-4" />
-              New Analysis
-            </Button>
-          )}
+          <div className="flex items-center gap-2">
+            <Link to="/monitor">
+              <Button variant="outline" size="sm">
+                <Activity className="h-4 w-4" />
+                Website Monitor
+              </Button>
+            </Link>
+            {state === "results" && (
+              <Button variant="outline" size="sm" onClick={handleReset}>
+                <RotateCcw className="h-4 w-4" />
+                New Analysis
+              </Button>
+            )}
+          </div>
         </div>
       </header>
 

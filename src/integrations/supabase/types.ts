@@ -14,6 +14,155 @@ export type Database = {
   }
   public: {
     Tables: {
+      content_topics: {
+        Row: {
+          id: string
+          title: string
+          description: string
+          region: string
+          category: string
+          relevance_score: number
+          trending_reason: string | null
+          source_references: string[] | null
+          status: string
+          week_number: number
+          year: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          title: string
+          description: string
+          region: string
+          category: string
+          relevance_score?: number
+          trending_reason?: string | null
+          source_references?: string[] | null
+          status?: string
+          week_number: number
+          year: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          description?: string
+          region?: string
+          category?: string
+          relevance_score?: number
+          trending_reason?: string | null
+          source_references?: string[] | null
+          status?: string
+          week_number?: number
+          year?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      content_scripts: {
+        Row: {
+          id: string
+          topic_id: string | null
+          title: string
+          hook: string
+          body: string
+          call_to_action: string
+          target_audience: string
+          estimated_duration: string
+          key_takeaways: string[]
+          script_type: string
+          status: string
+          week_number: number
+          year: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          topic_id?: string | null
+          title: string
+          hook: string
+          body: string
+          call_to_action: string
+          target_audience: string
+          estimated_duration?: string
+          key_takeaways?: string[]
+          script_type?: string
+          status?: string
+          week_number: number
+          year: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          topic_id?: string | null
+          title?: string
+          hook?: string
+          body?: string
+          call_to_action?: string
+          target_audience?: string
+          estimated_duration?: string
+          key_takeaways?: string[]
+          script_type?: string
+          status?: string
+          week_number?: number
+          year?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "content_scripts_topic_id_fkey"
+            columns: ["topic_id"]
+            isOneToOne: false
+            referencedRelation: "content_topics"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      weekly_briefs: {
+        Row: {
+          id: string
+          week_number: number
+          year: number
+          summary: string
+          topic_count: number
+          script_count: number
+          status: string
+          generated_at: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          week_number: number
+          year: number
+          summary: string
+          topic_count?: number
+          script_count?: number
+          status?: string
+          generated_at?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          week_number?: number
+          year?: number
+          summary?: string
+          topic_count?: number
+          script_count?: number
+          status?: string
+          generated_at?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       screening_sessions: {
         Row: {
           created_at: string

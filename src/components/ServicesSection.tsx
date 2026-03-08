@@ -1,47 +1,47 @@
-import { Brain, BarChart3, Search, Lightbulb, TrendingUp, Database } from "lucide-react";
+import { Building2, Truck, Battery, Network, FileCheck, Landmark } from "lucide-react";
 
 const services = [
   {
-    icon: Search,
-    title: "Market Research",
+    icon: Building2,
+    title: "Building Electrification",
     description:
-      "AI-accelerated primary and secondary research that surfaces patterns and opportunities invisible to traditional methods.",
-    highlights: ["Competitive Intelligence", "Consumer Insights", "Trend Analysis"],
+      "Transition commercial and residential buildings from gas to all-electric systems. We design heat pump strategies, electrical panel upgrades, and phased retrofit plans.",
+    highlights: ["Heat Pump Design", "Panel Upgrades", "Retrofit Planning"],
   },
   {
-    icon: Brain,
-    title: "Strategy Consulting",
+    icon: Truck,
+    title: "Fleet Electrification",
     description:
-      "Data-informed strategic frameworks that help organizations navigate complexity and make high-conviction decisions.",
-    highlights: ["Go-to-Market Strategy", "Growth Planning", "Scenario Modeling"],
+      "Plan and execute the transition of vehicle fleets to electric. From route analysis to charging infrastructure, we build a roadmap that minimizes downtime and maximizes ROI.",
+    highlights: ["Fleet Assessment", "Charging Infrastructure", "TCO Analysis"],
   },
   {
-    icon: BarChart3,
-    title: "Data Analytics",
+    icon: Battery,
+    title: "Energy Storage",
     description:
-      "Turn raw data into actionable intelligence. Our AI pipelines process, analyze, and visualize complex datasets at scale.",
-    highlights: ["Predictive Analytics", "Dashboard Design", "Data Engineering"],
+      "Right-size and deploy battery energy storage systems that reduce demand charges, provide backup power, and enable participation in grid services.",
+    highlights: ["BESS Sizing", "Revenue Modeling", "Procurement Support"],
   },
   {
-    icon: Lightbulb,
-    title: "Innovation Advisory",
+    icon: Network,
+    title: "Grid Integration",
     description:
-      "Identify emerging technologies and business models that will shape your industry. Stay ahead of disruption.",
-    highlights: ["Technology Scouting", "R&D Strategy", "Patent Analysis"],
+      "Navigate interconnection processes, utility coordination, and grid readiness assessments. We ensure your electrification projects connect smoothly and compliantly.",
+    highlights: ["Interconnection", "Utility Coordination", "Load Studies"],
   },
   {
-    icon: TrendingUp,
-    title: "Due Diligence",
+    icon: FileCheck,
+    title: "Electrification Roadmapping",
     description:
-      "Comprehensive commercial and technical due diligence powered by AI-driven analysis for confident investment decisions.",
-    highlights: ["Market Sizing", "Risk Assessment", "Valuation Support"],
+      "Develop multi-year strategic plans for full electrification. We assess your current infrastructure, model scenarios, and chart the most cost-effective path forward.",
+    highlights: ["Baseline Audits", "Scenario Modeling", "Capital Planning"],
   },
   {
-    icon: Database,
-    title: "Custom AI Solutions",
+    icon: Landmark,
+    title: "Incentive & Policy Navigation",
     description:
-      "Bespoke AI tools and models tailored to your specific research and analysis workflows. From prototype to production.",
-    highlights: ["Custom Models", "Workflow Automation", "Knowledge Systems"],
+      "Maximize the financial benefits of electrification. We identify and secure federal, state, and utility incentives including IRA tax credits and rebate programs.",
+    highlights: ["IRA Tax Credits", "Utility Rebates", "Grant Applications"],
   },
 ];
 
@@ -55,11 +55,11 @@ export const ServicesSection = () => {
             Services
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Intelligence, delivered{" "}
-            <span className="text-gradient">differently</span>
+            End-to-end{" "}
+            <span className="text-gradient">electrification</span> expertise
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            We pair deep domain expertise with AI-native workflows to deliver research and consulting services that are faster, sharper, and more actionable.
+            From initial assessment through implementation and optimization, we provide the technical expertise and strategic guidance to electrify with confidence.
           </p>
         </div>
 

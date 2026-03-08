@@ -2,15 +2,15 @@ import { ArrowUpRight } from "lucide-react";
 
 const footerLinks = {
   Services: [
-    { label: "Market Research", href: "#services" },
-    { label: "Strategy Consulting", href: "#services" },
-    { label: "Data Analytics", href: "#services" },
-    { label: "AI Solutions", href: "#services" },
+    { label: "Building Electrification", href: "#services" },
+    { label: "Fleet Electrification", href: "#services" },
+    { label: "Energy Storage", href: "#services" },
+    { label: "Grid Integration", href: "#services" },
   ],
   Company: [
     { label: "About", href: "#approach" },
     { label: "Careers", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "Insights", href: "#" },
     { label: "Contact", href: "#contact" },
   ],
   Legal: [
@@ -35,7 +35,7 @@ export const Footer = () => {
               </span>
             </a>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              AI-powered research services and consulting for the modern enterprise. Transforming complexity into clarity.
+              Expert electrification consulting for the energy transition. We help organizations decarbonize through strategic planning and technical execution.
             </p>
           </div>
 

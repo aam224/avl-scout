@@ -1,33 +1,33 @@
-import { Cpu, Users, Zap, Target } from "lucide-react";
+import { ClipboardCheck, Map, Hammer, BarChart3 } from "lucide-react";
 
 const steps = [
   {
     number: "01",
-    icon: Target,
-    title: "Scope & Define",
+    icon: ClipboardCheck,
+    title: "Assess",
     description:
-      "We start by deeply understanding your challenge. Our team works with you to frame the right questions and define clear success criteria.",
+      "We start with a comprehensive audit of your current energy systems, infrastructure, and operations to establish a baseline and identify electrification opportunities.",
   },
   {
     number: "02",
-    icon: Cpu,
-    title: "AI-Powered Research",
+    icon: Map,
+    title: "Plan",
     description:
-      "Our proprietary AI systems process vast datasets, academic literature, market signals, and unstructured data to surface insights at unprecedented speed.",
+      "Our team develops a detailed electrification roadmap with phased milestones, cost-benefit analysis, incentive strategies, and risk mitigation plans tailored to your goals.",
   },
   {
     number: "03",
-    icon: Users,
-    title: "Expert Analysis",
+    icon: Hammer,
+    title: "Execute",
     description:
-      "Senior consultants with deep industry expertise review, contextualize, and synthesize AI-generated insights into actionable recommendations.",
+      "We manage vendor selection, equipment procurement, utility coordination, and project implementation to ensure your electrification projects are delivered on time and on budget.",
   },
   {
     number: "04",
-    icon: Zap,
-    title: "Deliver & Iterate",
+    icon: BarChart3,
+    title: "Optimize",
     description:
-      "We deliver clear, compelling outputs and work alongside your team to implement findings. Continuous feedback loops ensure lasting impact.",
+      "Post-deployment, we monitor system performance, optimize energy usage, and ensure you're capturing the full value of your electrification investments over time.",
   },
 ];
 
@@ -44,11 +44,11 @@ export const ApproachSection = () => {
             Our Approach
           </p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Human expertise,{" "}
-            <span className="text-gradient">amplified by AI</span>
+            A proven path to{" "}
+            <span className="text-gradient">electrification</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            We don't replace human judgment with AI. We amplify it. Our approach combines the pattern-recognition power of AI with the contextual understanding of experienced consultants.
+            Electrification is a journey, not a single project. Our four-phase approach ensures you move at the right pace with the right strategy, reducing risk and maximizing impact at every step.
           </p>
         </div>
 

@@ -15,11 +15,11 @@ export const CTASection = () => {
               Let's Work Together
             </p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Ready to transform your{" "}
-              <span className="text-gradient">research capability</span>?
+              Ready to start your{" "}
+              <span className="text-gradient">electrification journey</span>?
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-              Whether you have a specific project in mind or want to explore how AI can elevate your research and strategy function, we'd love to hear from you.
+              Whether you're exploring electrification for the first time or ready to scale an existing program, we'd love to help you chart the path forward.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
@@ -51,7 +51,7 @@ export const CTASection = () => {
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
               <span className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-                No commitment required
+                Free initial consultation
               </span>
               <span className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
@@ -59,7 +59,7 @@ export const CTASection = () => {
               </span>
               <span className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-                Free initial consultation
+                Technology-agnostic advice
               </span>
             </div>
           </div>

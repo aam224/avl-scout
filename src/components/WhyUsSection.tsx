@@ -1,29 +1,29 @@
-import { Shield, Clock, Eye, LineChart } from "lucide-react";
+import { Shield, Leaf, Wrench, Scale } from "lucide-react";
 
 const differentiators = [
   {
-    icon: Clock,
-    title: "Speed Without Compromise",
+    icon: Leaf,
+    title: "Deep Electrification Expertise",
     description:
-      "AI-accelerated workflows deliver research in days, not weeks. You get the depth of traditional consulting at the speed your business demands.",
+      "Our team has decades of combined experience in energy systems, power engineering, and clean energy transitions. We live and breathe electrification.",
   },
   {
-    icon: Eye,
-    title: "Deeper Pattern Recognition",
+    icon: Scale,
+    title: "Technology-Agnostic Advice",
     description:
-      "Our AI systems analyze millions of data points to surface non-obvious patterns and connections that manual research simply cannot find.",
+      "We recommend the best solutions for your situation, not the ones that earn us commissions. Our independence means you get unbiased, objective guidance.",
+  },
+  {
+    icon: Wrench,
+    title: "End-to-End Support",
+    description:
+      "From feasibility studies and engineering design to procurement and commissioning, we stay with you through every phase of the electrification journey.",
   },
   {
     icon: Shield,
-    title: "Rigorous & Transparent",
+    title: "Regulatory & Incentive Mastery",
     description:
-      "Every insight is traceable to its source. We provide full methodology documentation so you can trust and defend the findings.",
-  },
-  {
-    icon: LineChart,
-    title: "Built for Action",
-    description:
-      "We don't deliver shelf-ware. Every engagement is designed to produce clear, prioritized recommendations that drive real business outcomes.",
+      "We navigate complex utility tariffs, building codes, emissions regulations, and incentive programs so you capture every dollar of available support.",
   },
 ];
 
@@ -38,11 +38,11 @@ export const WhyUsSection = () => {
               Why Simplergy
             </p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              The new standard for{" "}
-              <span className="text-gradient">research & consulting</span>
+              Your trusted partner in{" "}
+              <span className="text-gradient">electrification</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-10">
-              Traditional consulting is slow, expensive, and often disconnected from the data. Simplergy was built to change that. We bring together AI-native research capabilities with senior-level strategic thinking.
+              The energy transition is complex. Navigating equipment choices, utility processes, incentive programs, and construction timelines requires a team that's done it before. Simplergy brings that experience to every engagement.
             </p>
 
             <div className="space-y-6">
@@ -74,29 +74,29 @@ export const WhyUsSection = () => {
                 {/* Testimonial quote */}
                 <div>
                   <blockquote className="text-lg md:text-xl font-medium text-foreground leading-relaxed">
-                    "Simplergy delivered in two weeks what would have taken our internal team three months. The AI-powered analysis uncovered market segments we hadn't even considered."
+                    "Simplergy guided us through a full building electrification that cut our gas usage to zero and reduced energy costs by 35%. Their team made a complex transition feel straightforward."
                   </blockquote>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 rounded-full gradient-primary flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">VP</span>
+                    <span className="text-white font-bold text-sm">DS</span>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-foreground">VP of Strategy</p>
-                    <p className="text-sm text-muted-foreground">Fortune 500 Energy Company</p>
+                    <p className="text-sm font-semibold text-foreground">Director of Sustainability</p>
+                    <p className="text-sm text-muted-foreground">Commercial Real Estate Portfolio</p>
                   </div>
                 </div>
 
                 {/* Metrics */}
                 <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border">
                   <div>
-                    <div className="text-2xl font-bold text-gradient">85%</div>
-                    <p className="text-xs text-muted-foreground mt-0.5">Faster time-to-insight</p>
+                    <div className="text-2xl font-bold text-gradient">35%</div>
+                    <p className="text-xs text-muted-foreground mt-0.5">Energy cost reduction</p>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-gradient">3.2x</div>
-                    <p className="text-xs text-muted-foreground mt-0.5">ROI on engagement</p>
+                    <div className="text-2xl font-bold text-gradient">100%</div>
+                    <p className="text-xs text-muted-foreground mt-0.5">Gas elimination</p>
                   </div>
                 </div>
               </div>
